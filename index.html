@@ -111,13 +111,13 @@
             <div class="hero__ctas">
               <!-- PLAY_STORE_URL: Google Play link -->
               <a class="store-badge" href="PLAY_STORE_URL" aria-label="Get Noeul on Google Play">
-                <svg width="24" height="26" viewBox="0 0 24 26" fill="currentColor" aria-hidden="true"><path d="M3.3 1.4c-.3.3-.5.7-.5 1.3v20.6c0 .6.2 1 .5 1.3l.1.1L15 13.1v-.2L3.4 1.3l-.1.1z"/><path d="M18.9 17 15 13.1v-.2L18.9 9l.1.1 4.6 2.6c1.3.8 1.3 2 0 2.7L19 17l-.1.1z"/><path d="M19 16.9 15 13 3.3 24.6c.4.5 1.1.5 1.9.1L19 16.9"/><path d="M19 9.1 5.2 1.3C4.4.9 3.7.9 3.3 1.4L15 13l4-3.9z"/></svg>
+                <svg width="24" height="24" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M47 0C34 6.8 25.3 19.2 25.3 35.3V476.6C25.3 492.7 34 505.1 47 511.9L303.6 256Z"/><path d="M104.6 13L385.4 174.2 325.3 234.3Z"/><path d="M104.6 499L385.4 337.8 325.3 277.7Z"/><path d="M347.6 256L413.3 191.5 473 226C494 238 494 274 473 286.4L413.3 320.5Z"/></svg>
                 <span>
                   <span class="store-badge__sub">Get it on</span>
                   <span class="store-badge__main">Google Play</span>
                 </span>
               </a>
-              <a class="btn btn--ghost" href="#screenshots">See it in action</a>
+              <a class="btn btn--ghost" href="#try">See it in action</a>
             </div>
             <p class="hero__note">Built on comprehensible-input research. Korea's classics included.</p>
           </div>
@@ -391,7 +391,7 @@
           <div class="download__badges">
             <!-- PLAY_STORE_URL: Google Play link -->
             <a class="store-badge" href="PLAY_STORE_URL" aria-label="Get Noeul on Google Play">
-              <svg width="24" height="26" viewBox="0 0 24 26" fill="currentColor" aria-hidden="true"><path d="M3.3 1.4c-.3.3-.5.7-.5 1.3v20.6c0 .6.2 1 .5 1.3l.1.1L15 13.1v-.2L3.4 1.3l-.1.1z"/><path d="M18.9 17 15 13.1v-.2L18.9 9l.1.1 4.6 2.6c1.3.8 1.3 2 0 2.7L19 17l-.1.1z"/><path d="M19 16.9 15 13 3.3 24.6c.4.5 1.1.5 1.9.1L19 16.9"/><path d="M19 9.1 5.2 1.3C4.4.9 3.7.9 3.3 1.4L15 13l4-3.9z"/></svg>
+              <svg width="24" height="24" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M47 0C34 6.8 25.3 19.2 25.3 35.3V476.6C25.3 492.7 34 505.1 47 511.9L303.6 256Z"/><path d="M104.6 13L385.4 174.2 325.3 234.3Z"/><path d="M104.6 499L385.4 337.8 325.3 277.7Z"/><path d="M347.6 256L413.3 191.5 473 226C494 238 494 274 473 286.4L413.3 320.5Z"/></svg>
               <span>
                 <span class="store-badge__sub">Get it on</span>
                 <span class="store-badge__main">Google Play</span>
@@ -452,7 +452,11 @@
         <nav class="footer__links" aria-label="Footer">
           <a href="./privacy.html">Privacy Policy</a>
           <a href="./terms.html">Terms of Service</a>
-          <a href="mailto:noeul.app@gmail.com">Contact</a>
+          <span class="footer__contact">Contact: <span class="footer__email">noeul.app@gmail.com<button class="footer__copy-btn" type="button" data-copy="noeul.app@gmail.com" aria-label="Copy email address" title="Copy email address">
+              <svg class="icon-copy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </button></span>
+          </span>
           <!-- SOCIAL_URL: add social links here if/when you have them
           <a href="SOCIAL_URL">Instagram</a>
           -->
@@ -469,5 +473,6 @@
   </div>
 
   <script src="./js/main.js?v=3"></script>
+  <script src="./js/copy-email.js"></script>
 </body>
 </html>

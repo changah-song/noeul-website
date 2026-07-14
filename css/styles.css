@@ -732,8 +732,28 @@ p { margin: 0; }
   gap: 32px;
 }
 .footer__tagline { color: var(--text-muted); margin-top: 12px; max-width: 36ch; font-size: 15px; }
-.footer__links { display: flex; flex-wrap: wrap; gap: 20px 28px; }
+.footer__links { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 28px; }
 .footer__links a { color: var(--text-secondary); font-size: 15px; }
+.footer__contact { color: var(--text-secondary); font-size: 15px; }
+.footer__email { white-space: nowrap; }
+.footer__copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border: 0;
+  background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: 6px;
+  vertical-align: -6px;
+  margin-left: 2px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.footer__copy-btn:hover { color: var(--text); background: var(--accent-soft); }
+.footer__copy-btn .icon-check { display: none; }
+.footer__copy-btn.is-copied .icon-copy { display: none; }
+.footer__copy-btn.is-copied .icon-check { display: block; }
 .footer__copy { margin-top: 28px; color: var(--text-subtle); font-size: 13px; }
 
 /* ---------- legal pages ---------- */
