@@ -1,6 +1,6 @@
-# FluentFable — marketing landing page
+# Noeul — marketing landing page
 
-A static, single-page marketing site for **FluentFable**, a reading-first Korean language-learning app. No build step, no framework, no backend — just HTML, one CSS file, and a small amount of vanilla JS. Open `index.html` directly in a browser, or serve it from any static host.
+A static, single-page marketing site for **Noeul**, a reading-first Korean language-learning app for Android. No build step, no framework, no backend — just HTML, one CSS file, and a small amount of vanilla JS. Open `index.html` directly in a browser, or serve it from any static host.
 
 ## Deploy to GitHub Pages
 
@@ -14,11 +14,10 @@ The included empty `.nojekyll` file tells GitHub Pages to serve `/assets` as-is.
 
 These are greppable tokens. Search the project for each:
 
-- **`STORE_URL`** — your Apple App Store link (used by every "Download on the App Store" button).
-- **`PLAY_STORE_URL`** — Google Play link; its badge is commented out until Android ships.
+- **`PLAY_STORE_URL`** — your Google Play link (used by every "Get it on Google Play" button/badge).
 - **`CONTACT_EMAIL`** — the address behind the footer "Contact" link.
-- **`[DATE]`** / **`[PLACEHOLDER — replace]`** — the "Last updated" dates and FAQ/legal copy.
-- **`/assets/*.svg`** — placeholder images. Replace with real PNGs (each file's header comment lists the expected dimensions; app screenshots use a ~9:19.5 phone ratio). Update the `<img src>` extensions in `index.html` if you switch from `.svg` to `.png`.
+- **`[DATE]`** / **`[PLACEHOLDER — replace]`** — the "Last updated" dates and any remaining legal copy.
+- **`/assets/*.svg`** — remaining placeholder images (`og-image.svg`). The hero, screenshots, and demo video now use real app assets (`.png` / `.mp4`).
 - **`privacy.html` / `terms.html`** — paste your real legal content into the marked placeholder block.
 
 ## Structure
@@ -29,7 +28,7 @@ privacy.html    legal page (placeholder content)
 terms.html      legal page (placeholder content)
 css/styles.css  single stylesheet; all colors are :root custom properties
 js/main.js      mobile nav toggle, sticky-header state, screenshot lightbox, scroll reveal
-assets/         placeholder screenshots, hero, video poster, OG image (SVG)
-favicon.svg     FF monogram
+assets/         app screenshots, hero image, demo video + poster (PNG/MP4); OG image (SVG)
+favicon.svg     N monogram
 .nojekyll       lets GitHub Pages serve /assets untouched
 ```
