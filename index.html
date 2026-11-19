@@ -6,23 +6,22 @@
 
   <!-- ===================================================================
        CONFIG — OWNER: fill these in. They're greppable tokens.
-       1. PLAY_STORE_URL   → Google Play link. Used by every
-          "Get it on Google Play" button/badge below. Search "PLAY_STORE_URL".
-       2. CONTACT_EMAIL    → replaces the mailto in the footer. Search "CONTACT_EMAIL".
+       Store links live in the hero. Search "APP_STORE_URL", "PLAY_STORE_URL"
+       and "GITHUB_APK_URL" to find them.
        =================================================================== -->
 
   <title>Noeul — Learn Korean and Chinese by reading</title>
-  <meta name="description" content="Noeul is a reading-first Korean and Chinese app for Android. Read real books, tap any word for an instant definition, listen along, and let a quiet spaced-repetition deck catch what slips. No streaks. Just reading." />
+  <meta name="description" content="Noeul is a reading-first Korean and Chinese app for iPhone and Android. Read real books, tap any word for an instant definition, listen along, and let a quiet spaced-repetition deck catch what slips. No streaks. Just reading." />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Noeul — Learn Korean and Chinese by reading" />
-  <meta property="og:description" content="Reading-first Korean and Chinese for Android. Tap any word. No streaks, no confetti — just reading." />
+  <meta property="og:description" content="Reading-first Korean and Chinese for iPhone and Android. Tap any word. No streaks, no confetti — just reading." />
   <!-- OWNER: replace with a real 1200x630 PNG for best social-platform support -->
   <meta property="og:image" content="./assets/og-image.svg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Noeul — Learn Korean and Chinese by reading" />
-  <meta name="twitter:description" content="Reading-first Korean and Chinese for Android. Tap any word. No streaks, no confetti — just reading." />
+  <meta name="twitter:description" content="Reading-first Korean and Chinese for iPhone and Android. Tap any word. No streaks, no confetti — just reading." />
   <meta name="twitter:image" content="./assets/og-image.svg" />
 
   <meta name="theme-color" content="#fbf9f8" />
@@ -33,7 +32,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=Noto+Serif+KR:wght@400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="./css/styles.css?v=7" />
+  <link rel="stylesheet" href="./css/styles.css?v=8" />
 
   <!-- set theme before first paint to avoid a flash -->
   <script>
@@ -87,7 +86,7 @@
         <a href="#how">How it works</a>
         <a href="#try">Try it</a>
         <a href="#faq">FAQ</a>
-        <a class="btn btn--primary" href="https://github.com/changah-song/noeul/releases/latest/download/noeul.apk">Get the app</a>
+        <a class="btn btn--primary" href="#download">Get the app</a>
       </div>
     </div>
   </header>
@@ -109,32 +108,38 @@
               same help to anything outside the app. Saved words <strong>fade as you learn them</strong>, and
               <strong>flashcards</strong> wait quietly for the ones that try to slip away.
             </p>
-            <div class="hero__ctas">
-              <!-- GITHUB_APK_URL: direct download of the signed Android APK release -->
-              <a class="store-badge store-badge--github" href="https://github.com/changah-song/noeul/releases/latest/download/noeul.apk" aria-label="Download the Noeul Android APK from GitHub">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1-.02-1.96-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.68.8.56A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+            <div class="hero__ctas" id="download">
+              <!-- APP_STORE_URL -->
+              <a class="store-badge" href="https://apps.apple.com/app/id6832584946" target="_blank" rel="noopener" aria-label="Download Noeul on the App Store">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
                 <span>
-                  <span class="store-badge__sub">Download the</span>
-                  <span class="store-badge__main">Android APK</span>
+                  <span class="store-badge__sub">Download on the</span>
+                  <span class="store-badge__main">App Store</span>
                 </span>
               </a>
-              <!-- PLAY_STORE_URL: swap this for a live Google Play link once approved -->
-              <span class="store-badge store-badge--soon" aria-label="Noeul is coming soon to Google Play" role="img">
+              <!-- PLAY_STORE_URL -->
+              <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.noeulapp.Noeul" target="_blank" rel="noopener" aria-label="Get Noeul on Google Play">
                 <svg width="24" height="24" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M47 0C34 6.8 25.3 19.2 25.3 35.3V476.6C25.3 492.7 34 505.1 47 511.9L303.6 256Z"/><path d="M104.6 13L385.4 174.2 325.3 234.3Z"/><path d="M104.6 499L385.4 337.8 325.3 277.7Z"/><path d="M347.6 256L413.3 191.5 473 226C494 238 494 274 473 286.4L413.3 320.5Z"/></svg>
                 <span>
-                  <span class="store-badge__sub">Coming soon to</span>
+                  <span class="store-badge__sub">Get it on</span>
                   <span class="store-badge__main">Google Play</span>
                 </span>
-              </span>
+              </a>
             </div>
-            <p class="hero__note">Android 6.0+ · free download from GitHub · Google Play coming soon · <a href="https://github.com/changah-song/noeul/releases" target="_blank" rel="noopener">all releases</a></p>
+            <!-- GITHUB_APK_URL: direct download of the signed Android APK release -->
+            <p class="hero__note">
+              Free on iPhone and Android.
+              <a class="hero__github" href="https://github.com/changah-song/noeul/releases/latest/download/noeul.apk" aria-label="Download the Noeul Android APK from GitHub">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1-.02-1.96-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.68.8.56A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>Android APK on GitHub</a>
+              · <a href="https://github.com/changah-song/noeul/releases" target="_blank" rel="noopener">all releases</a>
+            </p>
           </div>
 
           <div class="hero__visual reveal">
             <a class="phone-link" href="#try" aria-label="Try Noeul out">
               <div class="phone">
-                <img src="./assets/hero-screenshot.png" width="1080" height="2244"
-                     alt="The Noeul home screen: the Korean classic 날개 by 김해경 under Continue reading with a Resume button, your shelf of public-domain books below, and the floating Read and Learn bar." />
+                <img src="./assets/screens/reader.png" width="720" height="1469"
+                     alt="The Noeul reader on the first page of 나비의 꿈: harder words are coloured from orange to red, each with a short English translation underneath, and a play button for listening sits in the corner." />
               </div>
             </a>
           </div>
@@ -146,6 +151,51 @@
     <section class="trust" aria-label="What Noeul is not">
       <div class="container">
         <p>No streaks. No confetti. Just reading.</p>
+      </div>
+    </section>
+
+    <!-- ===================== SCREENS ===================== -->
+    <section class="section" id="screens">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="eyebrow">Inside the app</p>
+          <h2 class="section__title">A look around.</h2>
+        </div>
+
+        <ul class="screens reveal">
+          <li class="screen">
+            <button class="screen__shot" type="button" data-lightbox aria-label="Enlarge the home screen screenshot">
+              <img src="./assets/screens/home.png" width="720" height="1469" loading="lazy"
+                   alt="The Noeul home screen: 나비의 꿈 under Continue reading at 7%, a Resume button, and the shelf below." />
+            </button>
+            <h3>Pick up where you left off</h3>
+            <p>Your current book, how far you are, and your shelf — one tap from the page you were on.</p>
+          </li>
+          <li class="screen">
+            <button class="screen__shot" type="button" data-lightbox aria-label="Enlarge the word lookup screenshot">
+              <img src="./assets/screens/roots.png" width="720" height="1469" loading="lazy"
+                   alt="The word 온종일 tapped in the reader: its sentence translated across the top, and a panel with the meaning, the hanja 終 and related words." />
+            </button>
+            <h3>Every word, down to its roots</h3>
+            <p>Tap a word for its meaning. Pull the panel up for the hanja inside it and the words that share them.</p>
+          </li>
+          <li class="screen">
+            <button class="screen__shot" type="button" data-lightbox aria-label="Enlarge the listen mode screenshot">
+              <img src="./assets/screens/listen.png" width="720" height="1469" loading="lazy"
+                   alt="Listen mode: the sentence being read aloud stays dark while the rest of the page fades back, with a player along the bottom." />
+            </button>
+            <h3>Listen, a sentence at a time</h3>
+            <p>The line being read stays lit while the rest of the page falls back. Change the speed, or hear each translation.</p>
+          </li>
+          <li class="screen">
+            <button class="screen__shot" type="button" data-lightbox aria-label="Enlarge the library screenshot">
+              <img src="./assets/screens/library.png" width="720" height="1469" loading="lazy"
+                   alt="The built-in library: Korean stories listed under Lower Intermediate, each with its length." />
+            </button>
+            <h3>A free library, sorted by level</h3>
+            <p>Public-domain stories from beginner up, each with an estimate of how much of it you'll understand.</p>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -172,7 +222,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M7 12h10" stroke-dasharray="2 2.2"/><path d="M4 17h16"/></svg>
             </span>
             <h3>Words under words</h3>
-            <p>Short translations sit under harder words and pinyin above Chinese ones. Underlines are tuned to <em>your</em> level, and dissolve into pixels once you've read past them.</p>
+            <p>Short translations sit under harder words and pinyin above Chinese ones. Harder words are coloured to <em>your</em> level, and the ones you save dissolve into pixels as you read past them.</p>
           </article>
 
           <article class="feature-card reveal">
@@ -290,26 +340,18 @@
           <!-- ---------- interactive phone ---------- -->
           <div class="demo-phone">
             <div class="reader" id="reader" data-mode="read">
-              <!-- top bar: back · bookmark · saved words · focus · listen · progress · full screen · menu -->
+              <!-- top bar: back · book title · focus · bookmark · menu (saved words) -->
               <div class="reader__topbar">
                 <span class="reader__tool" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span>
-                <span class="reader__tool reader__tool--hide" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M7 3.5h10a1 1 0 0 1 1 1v16l-6-3.6-6 3.6v-16a1 1 0 0 1 1-1z"/></svg></span>
-                <button class="reader__tool reader__words-btn" type="button" aria-pressed="false" aria-label="Your words" title="Your words">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3.5" y="7" width="11" height="14" rx="1.6" transform="rotate(-10 9 14)"/><path d="M11 4.2l6.6 1.2a1.6 1.6 0 0 1 1.3 1.8l-2 11.4"/></svg>
-                  <span class="reader__badge" id="words-badge">1</span>
-                </button>
+                <span class="reader__booktitle" aria-hidden="true">날개<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
                 <button class="reader__tool reader__focus-btn" type="button" aria-pressed="false" aria-label="Focus mode" title="Focus mode">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 12S5.5 4.5 12 4.5 22.5 12 22.5 12 18.5 19.5 12 19.5 1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3"/></svg>
                 </button>
-                <button class="reader__tool reader__listen-btn" type="button" aria-pressed="false" aria-label="Listen" title="Listen">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+                <span class="reader__tool reader__tool--hide" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M7 3.5h10a1 1 0 0 1 1 1v16l-6-3.6-6 3.6v-16a1 1 0 0 1 1-1z"/></svg></span>
+                <button class="reader__tool reader__words-btn" type="button" aria-pressed="false" aria-label="Saved in this book" title="Saved in this book">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+                  <span class="reader__badge" id="words-badge">1</span>
                 </button>
-                <span class="reader__meta">
-                  <span class="reader__progress"><i id="reader-progress-fill"></i></span>
-                  <span class="reader__pct" id="reader-pct">4%</span>
-                </span>
-                <span class="reader__tool reader__tool--hide" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/></svg></span>
-                <span class="reader__tool reader__tool--hide" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></span>
               </div>
 
               <!-- reading surface (swipeable) -->
@@ -319,16 +361,19 @@
                     <article class="reader__page">
                       <h4 class="reader__title">날개</h4>
                       <p class="reader__author">김해경</p>
-                      <p class="reader__p"><span class="rs">‘<button class="rw rw--d4" type="button" data-word="bakje"><span class="rw__w">박제</span><span class="rw__g">taxidermy</span></button>(剝製)가 되어 버린 <button class="rw rw--d3" type="button" data-word="cheonjae"><span class="rw__w">천재</span></button>’를 아시오?</span> <span class="rs">나는 <button class="rw rw--d2" type="button" data-word="yukwae"><span class="rw__w">유쾌</span></button>하오.</span> <span class="rs">이런 때 <button class="rw rw--d2" type="button" data-word="yeonae"><span class="rw__w">연애</span></button>까지가 유쾌하오.</span> <span class="rs">육신이 흐느적흐느적하도록 피로했을 때만 정신이 은화처럼 맑소.</span></p>
+                      <p class="reader__p"><span class="rs">‘<button class="rw rw--d4" type="button" data-word="bakje"><span class="rw__w">박제</span><span class="rw__g">taxidermy</span></button>(剝製)가 되어 버린 <button class="rw rw--d3" type="button" data-word="cheonjae"><span class="rw__w">천재</span><span class="rw__g">genius</span></button>’를 아시오?</span> <span class="rs">나는 <button class="rw rw--d2" type="button" data-word="yukwae"><span class="rw__w">유쾌</span><span class="rw__g">cheerful</span></button>하오.</span> <span class="rs">이런 때 <button class="rw rw--d2" type="button" data-word="yeonae"><span class="rw__w">연애</span><span class="rw__g">romance</span></button>까지가 유쾌하오.</span> <span class="rs">육신이 흐느적흐느적하도록 피로했을 때만 정신이 은화처럼 맑소.</span></p>
                     </article>
                     <article class="reader__page">
                       <p class="reader__p"><span class="rs">니코틴이 내 횟배 앓는 뱃속으로 스미면 머릿속에 으레 <button class="rw rw--d3" type="button" data-word="baekji"><span class="rw__w">백지</span><span class="rw__g">blank paper</span></button>가 준비되는 법이오.</span> <span class="rs">그 위에다 나는 위트와 파라독스를 바둑 포석처럼 늘어 놓소.</span> <span class="rs">가공할 상식의 병이오.</span></p>
-                      <p class="reader__p"><span class="rs">나는 또 여인과 생활을 설계하오.</span> <span class="rs"><button class="rw rw--d2" type="button" data-word="yeonae"><span class="rw__w">연애</span></button>기법에마저 서먹서먹해진 지성의 극치를 흘깃 좀 들여다본 일이 있는, 말하자면 일종의 정신분일자 말이오.</span></p>
+                      <p class="reader__p"><span class="rs">나는 또 여인과 생활을 설계하오.</span> <span class="rs"><button class="rw rw--d2" type="button" data-word="yeonae"><span class="rw__w">연애</span><span class="rw__g">romance</span></button>기법에마저 서먹서먹해진 지성의 극치를 흘깃 좀 들여다본 일이 있는, 말하자면 일종의 정신분일자 말이오.</span></p>
                     </article>
                   </div>
                 </div>
                 <button class="reader__pageflip reader__pageflip--prev" type="button" aria-label="Previous page" hidden>‹</button>
                 <button class="reader__pageflip reader__pageflip--next" type="button" aria-label="Next page">›</button>
+
+                <!-- sentence translation: a pane across the top (filled by JS) -->
+                <div class="transpane" id="transpane" aria-live="polite"></div>
 
                 <!-- your-words panel (saved + suggested + learned; filled by JS) -->
                 <div class="wordsview" id="wordsview">
@@ -339,6 +384,17 @@
                   </div>
                   <div class="wordsview__body" id="wordsview-body"></div>
                 </div>
+              </div>
+
+              <!-- listen: the floating play button -->
+              <button class="reader__fab reader__listen-btn" type="button" aria-pressed="false" aria-label="Listen" title="Listen">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M8 5.5v13l10.5-6.5z"/></svg>
+              </button>
+
+              <!-- progress -->
+              <div class="reader__foot">
+                <span class="reader__progress"><i id="reader-progress-fill"></i></span>
+                <span class="reader__pct" id="reader-pct">4%</span>
               </div>
 
               <!-- focus mode: sentence pill + up/down -->
@@ -367,17 +423,16 @@
 
               <!-- lookup sheet (filled by JS) -->
               <div class="sheet" id="sheet" aria-hidden="true"></div>
-              <div class="sheet-scrim" id="sheet-scrim" hidden></div>
             </div>
 
-            <p class="demo-hint" id="demo-hint">Tip: tap any <span class="demo-hint__word">underlined</span> word.</p>
+            <p class="demo-hint" id="demo-hint">Tip: tap any <span class="demo-hint__word">coloured</span> word.</p>
           </div>
 
           <!-- ---------- side guide ---------- -->
           <ul class="demo-guide">
             <li class="demo-guide__item" data-demo="define" tabindex="0" role="button">
               <span class="demo-guide__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 9 2-6 6-2-11-4z"/></svg></span>
-              <div><h3>Tap a word</h3><p>Instant definition, part of speech and romanization. Underlines run green to red by how hard the word is <em>for you</em>.</p></div>
+              <div><h3>Tap a word</h3><p>Instant definition, part of speech and romanization. Words are coloured green to red by how hard they are <em>for you</em>.</p></div>
             </li>
             <li class="demo-guide__item" data-demo="roots" tabindex="0" role="button">
               <span class="demo-guide__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7M12 10c0 4-4 4-4 8M12 10c0 4 4 4 4 8"/><circle cx="12" cy="3" r="1.4"/><circle cx="8" cy="19" r="1.4"/><circle cx="16" cy="19" r="1.4"/></svg></span>
@@ -389,11 +444,11 @@
             </li>
             <li class="demo-guide__item" data-demo="translate" tabindex="0" role="button">
               <span class="demo-guide__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 5h5.5c-.3 4.2-2 7.2-5.5 9"/><path d="M12 3.5v11.5M12 8.5h2.8"/><path d="M13.5 20.5l3.75-9 3.75 9M14.9 17.3h4.7"/></svg></span>
-              <div><h3>Press and hold to translate</h3><p>Hold anywhere in a sentence to select all of it — even across a page break — and see the whole line translated.</p></div>
+              <div><h3>Press and hold to translate</h3><p>Hold anywhere in a sentence — even across a page break — and its translation slides in across the top of the page.</p></div>
             </li>
             <li class="demo-guide__item" data-demo="fade" tabindex="0" role="button">
               <span class="demo-guide__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="4" y="4" width="4" height="4"/><rect x="12" y="4" width="4" height="4" opacity=".55"/><rect x="8" y="8" width="4" height="4" opacity=".8"/><rect x="16" y="8" width="4" height="4" opacity=".3"/><rect x="4" y="12" width="4" height="4" opacity=".6"/><rect x="12" y="12" width="4" height="4" opacity=".25"/><rect x="8" y="16" width="4" height="4" opacity=".35"/><rect x="16" y="16" width="4" height="4" opacity=".12"/></svg></span>
-              <div><h3>Saved words fade as you learn</h3><p>A saved word starts as a dark block and loses pixels each page you read past it. After six steps it moves to Learned. Turn a page to watch.</p></div>
+              <div><h3>Saved words fade as you learn</h3><p>Tap a word a second time to save it. It sits on a grey block that loses pixels each page you read past it; after six steps it moves to Learned. Turn a page to watch.</p></div>
             </li>
             <li class="demo-guide__item" data-demo="focus" tabindex="0" role="button">
               <span class="demo-guide__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="2.6"/></svg></span>
@@ -405,7 +460,7 @@
             </li>
             <li class="demo-guide__item" data-demo="words" tabindex="0" role="button">
               <span class="demo-guide__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3.5" y="7" width="11" height="14" rx="1.6" transform="rotate(-10 9 14)"/><path d="M11 4.2l6.6 1.2a1.6 1.6 0 0 1 1.3 1.8l-2 11.4"/></svg></span>
-              <div><h3>Your words, one tap away</h3><p>Tap the cards icon — everything you've saved in this book, a short list of words worth saving, and the ones you've already learned.</p></div>
+              <div><h3>Your words, in the menu</h3><p>Open the menu — everything you've saved in this book, a short list of words worth saving, and the ones you've already learned.</p></div>
             </li>
           </ul>
         </div>
@@ -423,7 +478,7 @@
         <div class="faq reveal">
           <details>
             <summary>Is Noeul free?</summary>
-            <p>Yes — Noeul is completely free. Download the APK above and install it on any Android 6.0+ phone; Android will ask you to allow installs from your browser, which is normal for apps outside the Play Store.</p>
+            <p>Yes — Noeul is completely free on the App Store and Google Play. If you'd rather not use a store, the Android APK is on GitHub too; Android will ask you to allow installs from your browser, which is normal for apps outside the Play Store.</p>
           </details>
           <details>
             <summary>What level do I need to start?</summary>
@@ -435,7 +490,7 @@
           </details>
           <details>
             <summary>Which languages can I learn?</summary>
-            <p>Korean and Chinese today. Korean definitions are available in eleven languages, including English, Chinese, Spanish, French and Vietnamese. English learning is on the roadmap; if there's a language you think fits this read-first format, reach out and tell us.</p>
+            <p>Korean, Chinese and English. Korean definitions are available in eleven languages, including English, Chinese, Spanish, French and Vietnamese. If there's another language you think fits this read-first format, reach out and tell us.</p>
           </details>
           <details>
             <summary>Can I import my own books?</summary>
@@ -482,7 +537,7 @@
     <img src="" alt="" />
   </div>
 
-  <script src="./js/main.js?v=6"></script>
+  <script src="./js/main.js?v=7"></script>
   <script src="./js/copy-email.js"></script>
 </body>
 </html>

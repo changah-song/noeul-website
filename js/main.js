@@ -188,7 +188,6 @@
     var track = document.getElementById('reader-track');
     var viewport = document.getElementById('reader-viewport');
     var sheet = document.getElementById('sheet');
-    var scrim = document.getElementById('sheet-scrim');
     var pctEl = document.getElementById('reader-pct');
     var fillEl = document.getElementById('reader-progress-fill');
     var badgeEl = document.getElementById('words-badge');
@@ -206,12 +205,13 @@
     var wordsBody = document.getElementById('wordsview-body');
     var wordsTabs = reader.querySelectorAll('.wordsview__tab');
     var hintEl = document.getElementById('demo-hint');
+    var paneEl = document.getElementById('transpane');
     var listenbar = document.getElementById('listenbar');
     var captionEl = document.getElementById('listen-caption');
     var speedEl = document.getElementById('listen-speed');
 
     var HINTS = {
-      read: 'Tip: tap any <span class="demo-hint__word">underlined</span> word, or press and hold a sentence.',
+      read: 'Tip: tap any <span class="demo-hint__word">coloured</span> word, tap it again to save it, or press and hold a sentence.',
       focus: 'Tip: swipe, tap the arrows, or tap a sentence to move.',
       listen: 'Tip: press play. Turn on translations to hear each line in English too.',
       words: 'Tip: save a suggestion — it joins your list.'
@@ -300,7 +300,7 @@
 
     function isSaved(id) { return savedList.indexOf(id) !== -1; }
 
-    /* ---- marks in the text: saved words are ink blocks that fade ---- */
+    /* ---- marks in the text: saved words are grey blocks that fade ---- */
     function paintMarks() {
       track.querySelectorAll('.rw').forEach(function (b) {
         var id = b.getAttribute('data-word');
@@ -339,30 +339,27 @@
             '" aria-label="Look up ' + c + '">' + c + '</button>';
         }).join('') + '</span>';
       }
+      var saved = isSaved(current);
       return '<button class="sheet__handle" type="button" data-act="handle" aria-label="' + (view === 'roots' ? 'Hide roots' : 'Show roots') + '"></button>' +
+        '<button class="sheet__save" type="button" data-act="save" aria-pressed="' + (saved ? 'true' : 'false') + '" aria-label="' + (saved ? 'Remove from saved' : 'Save word') + '">' + (saved ? ICON.saved : ICON.save) + '</button>' +
         '<div class="sheet__head"><span class="sheet__hw">' + w.hw + '</span>' + hanja + '</div>' +
         '<span class="sheet__roman">' + w.roman + '</span>' +
         '<div class="sheet__defline"><span class="sheet__pos">' + w.pos + '</span><span class="sheet__def">' + w.def + '</span></div>';
     }
-    function actions(id) {
-      var s = isSaved(id);
+    function actions() {
       return '<div class="sheet__actions">' +
-        '<button class="sheet__btn' + (s ? ' is-active' : '') + '" data-act="save">' + (s ? ICON.saved + ' Saved' : ICON.save + ' Save') + '</button>' +
-        '<button class="sheet__btn' + (view === 'ai' ? ' is-active' : '') + '" data-act="meaning">' + ICON.meaning + ' Meaning<sup>AI</sup></button>' +
-        '<button class="sheet__btn' + (view === 'translate' ? ' is-active' : '') + '" data-act="translate">' + ICON.translate + ' Translate</button>' +
+        '<button class="sheet__btn' + (view === 'ai' ? ' is-active' : '') + '" data-act="meaning">' + ICON.meaning + ' What it means here<sup>AI</sup></button>' +
         '</div>';
     }
     function render() {
       var w = WORDS[current];
       if (!w) { return; }
       var body = '';
-      if (view === 'translate') {
-        body = '<div class="sheet__inline"><small>English</small>' + w.wt + '</div>';
-      } else if (view === 'ai') {
+      if (view === 'ai') {
         body = '<div class="sheet__divider"></div><p class="sheet__label">In this sentence</p>' +
           '<div class="sheet__ai-slot"><div class="sheet__loading"><span></span><span></span><span></span></div></div>';
       } else if (view === 'roots') {
-        body = '<div class="sheet__divider"></div><p class="sheet__label">Characters</p><div class="sheet__roots">' +
+        body = '<div class="sheet__divider"></div><p class="sheet__label">Root characters</p><div class="sheet__roots">' +
           w.roots.map(function (c, i) {
             return '<div class="sheet__root' + (rootOn === i ? ' is-on' : '') + '"><span class="sheet__root-glyph">' + c.c +
               '</span><span><span class="rm">' + c.m + '</span><br><span class="re">' + c.e + '</span></span></div>';
@@ -372,7 +369,7 @@
               '<span class="m">' + r.m + '</span>' + (r.known ? '<span class="known">Known</span>' : '') + '</div>';
           }).join('') : '');
       }
-      sheet.innerHTML = head(w) + body + actions(current);
+      sheet.innerHTML = head(w) + body + actions();
       if (view === 'ai') {
         var slot = sheet.querySelector('.sheet__ai-slot');
         var token = ++aiToken;
@@ -382,40 +379,46 @@
       }
     }
 
-    /* ---- sheet open / close ---- */
+    /* ---- panel open / close; the sentence translation rides in a pane across the top ---- */
+    function showPane(idx) {
+      sentences.forEach(function (s, k) { s.classList.toggle('is-selected', k === idx); });
+      reader.classList.add('has-word');
+      if (paneEl) { paneEl.textContent = TRANS[idx] || ''; paneEl.classList.toggle('is-on', !!TRANS[idx]); }
+    }
     function openSheet() {
       sheet.classList.add('is-open');
       sheet.setAttribute('aria-hidden', 'false');
-      scrim.hidden = false;
     }
     function closeSheet() {
       sheet.classList.remove('is-open');
       sheet.setAttribute('aria-hidden', 'true');
-      scrim.hidden = true;
       current = null;
       highlight(null);
+      reader.classList.remove('has-word');
+      if (paneEl) { paneEl.classList.remove('is-on'); }
       track.querySelectorAll('.rs.is-selected').forEach(function (s) { s.classList.remove('is-selected'); });
     }
     function highlight(btn) {
       track.querySelectorAll('.rw').forEach(function (b) { b.classList.toggle('is-active', b === btn); });
     }
+    function toggleSave(id) {
+      var pos = savedList.indexOf(id);
+      if (pos === -1) { savedList.unshift(id); fade[id] = 0; }
+      else { savedList.splice(pos, 1); delete fade[id]; }
+      paintMarks();
+    }
     function openWord(id, v, btn) {
       if (!WORDS[id]) { return; }
+      btn = btn || track.querySelector('.rw[data-word="' + id + '"]');
       current = id; view = v || 'define'; rootOn = view === 'roots' ? 0 : -1;
       render();
-      highlight(btn || track.querySelector('.rw[data-word="' + id + '"]'));
+      highlight(btn);
+      if (mode === 'read') { showPane(Array.prototype.indexOf.call(sentences, btn.closest('.rs'))); }
       openSheet();
     }
     function openSentence(idx) {
-      current = null;
-      highlight(null);
-      var s = sentences[idx];
-      if (s) { s.classList.add('is-selected'); }
-      sheet.innerHTML = '<button class="sheet__handle" type="button" data-act="close" aria-label="Close"></button>' +
-        '<p class="sheet__label">Sentence</p>' +
-        '<p class="sheet__ai" style="font-family:var(--font-kr);font-size:15px">' + (s ? s.textContent : '') + '</p>' +
-        '<div class="sheet__inline"><small>Translation</small>' + (TRANS[idx] || '') + '</div>';
-      openSheet();
+      closeSheet();
+      showPane(idx);
     }
 
     /* ---- paging ---- */
@@ -571,7 +574,7 @@
         wordsBody.innerHTML = savedList.length
           ? savedList.map(savedRowHtml).join('') +
             '<p class="wv-note">Each saved word fades a step every page you read past it. After six, it moves to Learned.</p>'
-          : '<p class="wv-note">Nothing saved yet — tap a word in the reader and hit Save.</p>';
+          : '<p class="wv-note">Nothing saved yet — tap a word in the reader, then tap it again.</p>';
       } else if (wtab === 'suggested') {
         wordsBody.innerHTML =
           '<p class="wv-note">Picked from this book, for you: words the app isn\'t sure you know — and that the story is too sparing with to teach on its own.</p>' +
@@ -626,9 +629,12 @@
       if (w) {
         e.preventDefault();
         if (s && (mode === 'focus' || mode === 'listen')) { setBeam(Array.prototype.indexOf.call(sentences, s)); }
+        // a second tap on the open word saves it
+        if (w.classList.contains('is-active')) { toggleSave(current); render(); return; }
         openWord(w.getAttribute('data-word'), 'define', w);
         return;
       }
+      if (reader.classList.contains('has-word')) { closeSheet(); return; }
       if (s && (mode === 'focus' || mode === 'listen')) {
         closeSheet();
         setBeam(Array.prototype.indexOf.call(sentences, s));
@@ -668,22 +674,14 @@
       var act = el.getAttribute('data-act');
       if (act === 'close') { closeSheet(); return; }
       if (!current) { return; }
-      if (act === 'save') {
-        var pos = savedList.indexOf(current);
-        if (pos === -1) { savedList.unshift(current); fade[current] = 0; }
-        else { savedList.splice(pos, 1); delete fade[current]; }
-        paintMarks();
-        render();
-        return;
-      }
+      if (act === 'save') { toggleSave(current); render(); return; }
       if (act === 'handle') { view = view === 'roots' ? 'define' : 'roots'; rootOn = view === 'roots' ? 0 : -1; }
       else if (act === 'char') { view = 'roots'; rootOn = Number(el.getAttribute('data-i')); }
       else if (act === 'meaning') { view = view === 'ai' ? 'define' : 'ai'; }
-      else if (act === 'translate') { view = view === 'translate' ? 'define' : 'translate'; }
       render();
     });
 
-    scrim.addEventListener('click', closeSheet);
+    if (paneEl) { paneEl.addEventListener('click', closeSheet); }
     if (prevBtn) { prevBtn.addEventListener('click', function () { closeSheet(); setPage(page - 1); }); }
     if (nextBtn) { nextBtn.addEventListener('click', function () { closeSheet(); setPage(page + 1); }); }
     if (focusBtn) { focusBtn.addEventListener('click', function () { setMode(mode === 'focus' ? 'read' : 'focus'); }); }
