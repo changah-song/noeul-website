@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>You're invited — Noeul</title>
+  <meta name="description" content="A friend invited you to read with them on Noeul." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#fbf9f8" />
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header is-scrolled">
+    <div class="container">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="./index.html" aria-label="Noeul home">
+          <span class="brand__mark" aria-hidden="true">N</span>
+          <span class="brand__word">Noeul</span>
+        </a>
+        <div class="nav__links">
+          <a href="./index.html#features">Features</a>
+          <a href="./index.html#how">How it works</a>
+          <a href="./index.html#faq">FAQ</a>
+          <a class="btn btn--primary btn--sm" href="./index.html#download">Get the app</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="container legal invite">
+      <h1>A friend invited you to read on Noeul</h1>
+
+      <!-- Shown when the link carries an invite code (js/invite.js). -->
+      <div id="invite-ready" hidden>
+        <p>Open the invite in the app to add them as a friend. You'll see each other's reading streak, current book and books finished.</p>
+        <p class="invite__actions">
+          <a class="btn btn--primary" id="invite-open" href="./index.html#download">Open in Noeul</a>
+        </p>
+
+        <h2>If the button doesn't open the app</h2>
+        <ol>
+          <li>Open Noeul and go to <strong>Profile</strong>.</li>
+          <li>Under Friends, tap <strong>Add with an invite code</strong>.</li>
+          <li>Enter this code:</li>
+        </ol>
+        <p class="invite__code">
+          <span id="invite-code" class="invite__code-text"></span>
+          <button class="btn btn--ghost btn--sm" id="invite-copy" type="button">Copy code</button>
+        </p>
+
+        <h2>Don't have Noeul yet?</h2>
+        <p><a href="./index.html#download">Get the app</a>, create an account, then come back and open this link again.</p>
+      </div>
+
+      <!-- Shown when the link has no code, or a broken one. -->
+      <div id="invite-missing">
+        <p>This invite link is incomplete. Ask your friend to send it again from Noeul: Profile, then <strong>Invite a friend</strong>.</p>
+      </div>
+
+      <a class="back" href="./index.html">&larr; Back to home</a>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a class="brand" href="./index.html" aria-label="Noeul home">
+            <span class="brand__mark" aria-hidden="true">N</span>
+            <span class="brand__word">Noeul</span>
+          </a>
+          <p class="footer__tagline">Learn Korean by reading the books you actually want to read.</p>
+        </div>
+        <nav class="footer__links" aria-label="Footer">
+          <a href="./privacy.html">Privacy Policy</a>
+          <a href="./terms.html">Terms of Service</a>
+          <a href="./delete-account.html">Delete Account</a>
+          <span class="footer__contact">Contact: <span class="footer__email">noeul.app@gmail.com<button class="footer__copy-btn" type="button" data-copy="noeul.app@gmail.com" aria-label="Copy email address" title="Copy email address">
+              <svg class="icon-copy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </button></span>
+          </span>
+        </nav>
+      </div>
+      <p class="footer__copy">© 2026 Noeul. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="./js/copy-email.js"></script>
+  <script src="./js/invite.js"></script>
+</body>
+</html>

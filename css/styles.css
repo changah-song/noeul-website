@@ -886,6 +886,22 @@ button.reader__tool:hover, button.reader__tool[aria-pressed="true"] { background
 .legal th { background: var(--surface-muted); font-family: var(--font-ui); font-weight: 600; color: var(--text); }
 .legal td.yesno { text-align: center; white-space: nowrap; font-weight: 600; }
 
+/* invite page (invite.html) */
+.invite .invite__actions { margin-top: 28px; }
+.invite .invite__actions .btn { text-decoration: none; }
+.invite .invite__code { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.invite .invite__code-text {
+  background: var(--surface-assist);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 10px 16px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 18px;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  user-select: all;
+}
+
 .placeholder-note {
   display: block;
   background: var(--surface-assist);
