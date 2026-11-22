@@ -932,6 +932,21 @@ button.reader__tool:hover, button.reader__tool[aria-pressed="true"] { background
 .legal td.yesno { text-align: center; white-space: nowrap; font-weight: 600; }
 
 /* invite page (invite.html) */
+/* ---------- password reset page ---------- */
+.reset .reset__form { max-width: 420px; }
+.reset .reset__label { display: block; margin-top: 24px; font-size: 14px; font-weight: 600; color: var(--text); }
+.reset .reset__input {
+  display: block; width: 100%; margin-top: 8px; padding: 12px 14px;
+  font: inherit; color: var(--text); background: var(--surface);
+  border: 1px solid var(--border-strong); border-radius: var(--radius-md);
+}
+.reset .reset__input:focus-visible { outline: 2px solid var(--ink-slate); outline-offset: 1px; }
+.reset .reset__hint { margin-top: 8px; font-size: 14px; color: var(--text-tertiary); }
+.reset .reset__error { margin-top: 12px; font-size: 14px; color: var(--danger); }
+.reset .reset__form .btn { margin-top: 24px; }
+.reset .btn { text-decoration: none; }
+.reset .btn[disabled] { opacity: 0.6; cursor: default; }
+
 .invite .invite__actions { margin-top: 28px; }
 .invite .invite__actions .btn { text-decoration: none; }
 .invite .invite__code { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }

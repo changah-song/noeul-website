@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reset your password — Noeul</title>
+  <meta name="description" content="Reset the password for your Noeul account." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#fbf9f8" />
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header is-scrolled">
+    <div class="container">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="./index.html" aria-label="Noeul home">
+          <span class="brand__mark" aria-hidden="true">N</span>
+          <span class="brand__word">Noeul</span>
+        </a>
+        <div class="nav__links">
+          <a href="./index.html#features">Features</a>
+          <a href="./index.html#how">How it works</a>
+          <a href="./index.html#faq">FAQ</a>
+          <a class="btn btn--primary btn--sm" href="./index.html#download">Get the app</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="container legal reset">
+      <h1 id="reset-title">Reset your password</h1>
+
+      <!-- No link yet: ask for the account's email (js/reset.js). -->
+      <form id="reset-request" class="reset__form" novalidate>
+        <p>Enter the email address of your Noeul account. We'll send you a link to choose a new password.</p>
+        <p>If you signed in with Google or Apple, there is no Noeul password to reset: sign in the same way again.</p>
+        <label class="reset__label" for="reset-email">Email address</label>
+        <input class="reset__input" id="reset-email" name="email" type="email" autocomplete="email" inputmode="email" required />
+        <p class="reset__error" id="reset-request-error" role="alert" hidden></p>
+        <button class="btn btn--primary" id="reset-request-submit" type="submit">Send the link</button>
+      </form>
+
+      <div id="reset-sent" hidden>
+        <p>If there is a Noeul account for <strong id="reset-sent-email"></strong>, a link is on its way. It works for one hour.</p>
+        <p>Nothing after a few minutes? Check your spam folder, then <a href="./reset.html">try again</a>.</p>
+      </div>
+
+      <!-- Opened from the emailed link: choose the new password. -->
+      <form id="reset-new" class="reset__form" novalidate hidden>
+        <p>Choose a new password for your Noeul account.</p>
+        <label class="reset__label" for="reset-password">New password</label>
+        <input class="reset__input" id="reset-password" name="new-password" type="password" autocomplete="new-password" minlength="8" required />
+        <p class="reset__hint">At least 8 characters.</p>
+        <label class="reset__label" for="reset-password-again">New password again</label>
+        <input class="reset__input" id="reset-password-again" name="new-password-again" type="password" autocomplete="new-password" minlength="8" required />
+        <p class="reset__error" id="reset-new-error" role="alert" hidden></p>
+        <button class="btn btn--primary" id="reset-new-submit" type="submit">Change password</button>
+      </form>
+
+      <div id="reset-done" hidden>
+        <p>Your password is changed. Open Noeul and sign in with your email and the new password.</p>
+      </div>
+
+      <div id="reset-expired" hidden>
+        <p>This link has expired or was already used. Links work once, for one hour.</p>
+        <p><a class="btn btn--primary" href="./reset.html">Send a new link</a></p>
+      </div>
+
+      <a class="back" href="./index.html">&larr; Back to home</a>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a class="brand" href="./index.html" aria-label="Noeul home">
+            <span class="brand__mark" aria-hidden="true">N</span>
+            <span class="brand__word">Noeul</span>
+          </a>
+          <p class="footer__tagline">Learn Korean by reading the books you actually want to read.</p>
+        </div>
+        <nav class="footer__links" aria-label="Footer">
+          <a href="./privacy.html">Privacy Policy</a>
+          <a href="./terms.html">Terms of Service</a>
+          <a href="./delete-account.html">Delete Account</a>
+          <span class="footer__contact">Contact: <span class="footer__email">noeul.app@gmail.com<button class="footer__copy-btn" type="button" data-copy="noeul.app@gmail.com" aria-label="Copy email address" title="Copy email address">
+              <svg class="icon-copy" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </button></span>
+          </span>
+        </nav>
+      </div>
+      <p class="footer__copy">© 2026 Noeul. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="./js/copy-email.js"></script>
+  <script src="./js/reset.js"></script>
+</body>
+</html>
