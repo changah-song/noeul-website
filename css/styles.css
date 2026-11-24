@@ -469,7 +469,7 @@ p { margin: 0; }
 .screen h3 { font-size: 17px; margin: 18px 0 4px; }
 .screen p { font-size: 14.5px; line-height: 1.55; color: var(--text-muted); }
 @media (min-width: 900px) {
-  .screens { grid-auto-flow: row; grid-template-columns: repeat(5, 1fr); gap: 24px; margin-inline: 0; padding-inline: 0; overflow: visible; }
+  .screens { grid-auto-flow: row; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-inline: 0; padding-inline: 0; overflow: visible; }
 }
 @media (prefers-reduced-motion: reduce) { .screen__shot { transition: none; } .screen__shot:hover { transform: none; } }
 
@@ -1010,7 +1010,6 @@ button.reader__tool:hover, button.reader__tool[aria-pressed="true"] { background
 
   .hero { padding-block: 80px 56px; }
   .hero__grid { grid-template-columns: 1.05fr 0.95fr; gap: 56px; }
-  .feature-grid { grid-template-columns: repeat(4, 1fr); }
-  .feature-card { padding: 24px; }
+  .feature-grid { grid-template-columns: repeat(3, 1fr); }
   .section__title { font-size: 34px; }
 }
